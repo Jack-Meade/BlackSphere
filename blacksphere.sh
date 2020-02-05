@@ -10,16 +10,15 @@ url="jmpi.ddns.net"
 remote_path="TopLevelDir"
 local_mount=~/LocalMount
 
-echo -e "[M]ount or [U]nmount? \c"
-read mnt_choice
-if [[ ${mnt_choice^} == "M" ]]; then
-    # read -p "Remote User: " remote_user
-    # read -p "URL: "         url
-    # read -p "Remote Path: " remote_path
+if [[ $(mount | grep $remote_user@$url:$remote_path) == "" ]]; then
     mkdir $local_mount 2> /dev/null
-    sshfs -o idmap=user $remote_user@$url:$remote_path $local_mount
-elif [[ ${mnt_choice^} == "U" ]]; then
-    umount $local_mount
+    sshfs -o idmap=user $remote_user@$url:$remote_path $local_mount -p 22
 else
-    usage "M to mount, U to unmount"
+    echo -e "You sure you want to unmount? [y] \c"
+    read confirm
+    if [[ $confirm == "y" ]]; then
+        umount $local_mount
+    else
+        echo "Unrecognised input, just 'y' to confirm"
+    fi
 fi
