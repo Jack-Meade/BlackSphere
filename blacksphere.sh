@@ -7,12 +7,14 @@ function usage() {
 
 remote_user="sshfs"
 url="jmpi.ddns.net"
-remote_path="/var/www/html/sshfs/TopLevelDir"
+ssh_path="/var/www/html/sshfs/TopLevelDir"
+web_path="/sshfs/TopLevelDir"
 local_mount=~/LocalMount
 
-if [[ $(mount | grep $remote_user@$url:$remote_path) == "" ]]; then
+if [[ $(mount | grep $remote_user@$url:$ssh_path) == "" ]]; then
     mkdir $local_mount 2> /dev/null
-    sshfs -o idmap=user $remote_user@$url:$remote_path $local_mount -p 22
+    sshfs -o idmap=user $remote_user@$url:$ssh_path $local_mount -p 22
+    xdg-open https://$url$web_path
 else
     echo -e "You sure you want to unmount? [y] \c"
     read confirm
