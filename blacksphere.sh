@@ -7,7 +7,7 @@ function usage() {
 
 remote_user="sshfs"
 url="jmpi.ddns.net"
-remote_path="TopLevelDir"
+remote_path="/var/www/html/sshfs/TopLevelDir"
 local_mount=~/LocalMount
 
 if [[ $(mount | grep $remote_user@$url:$remote_path) == "" ]]; then
