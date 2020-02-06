@@ -33,7 +33,7 @@ Bradley Aherne
 
 Conor McDonald
 
-Alex Smith
+Alexander Smith
 
 ## License
 MIT(?)
