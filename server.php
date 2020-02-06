@@ -19,15 +19,7 @@
     <body>
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
-            <h1>Directory Contents of <?php
-                    if ($_SERVER['REQUEST_URI'] != "/sshfs/" && $_SERVER['REQUEST_URI'] != "/sshfs/?hidden")
-                        { $dir_path = str_replace("/sshfs", "", $_SERVER['REQUEST_URI']); }
-                    else
-                        { $dir_path = "/sshfs/"; }
-
-                    $dir_path = str_replace("?hidden", "", $dir_path);
-                    echo($dir_path);
-                ?></h1>
+            <h1>Directory Contents of <?php echo($dir_path); ?></h1>
 
             <table class="sortable">
                 <thead>
@@ -207,6 +199,27 @@
             </table>
 
             <h2><?php echo("<a href='$ahref'>$atext hidden files</a>"); ?></h2>
+
+            <?php
+
+                if(isset($_FILES['file_to_upload'])){
+                    $file_name  = $_FILES['file_to_upload']['name'];
+                    $file_size  = $_FILES['file_to_upload']['size'];
+                    $file_tmp   = $_FILES['file_to_upload']['tmp_name'];
+                    $file_type  = $_FILES['file_to_upload']['type'];
+                    $file_ext   = strtolower(end(explode('.',$_FILES['file_to_upload']['name'])));
+
+                    echo $_FILES[$file_name]['error'];
+                    echo "/var/www/html".$_SERVER['REQUEST_URI'].$file_name;
+                    move_uploaded_file($file_tmp, "/var/www/html".$_SERVER['REQUEST_URI'].$file_name);
+                }
+            ?>
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                Select file to upload:
+                <input type="file" name="file_to_upload"/>
+                <input type="submit" value="Upload File" name="submit"/>
+            </form>
         </div>
     </body>
 </html>
