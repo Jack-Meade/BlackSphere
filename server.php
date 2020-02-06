@@ -18,6 +18,7 @@
 
     <body>
         <div id="container">
+            <img src="/sshfs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php
                     if ($_SERVER['REQUEST_URI'] != "/sshfs/" && $_SERVER['REQUEST_URI'] != "/sshfs/?hidden")
                         { $dir_path = str_replace("/sshfs", "", $_SERVER['REQUEST_URI']); }
