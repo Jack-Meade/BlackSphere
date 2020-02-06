@@ -17,7 +17,11 @@ local_mount=~/LocalMount
 # Mounts or unmounts remote server directory with all other remotes
 if [[ $(mount | grep $remote_user@$url:$ssh_path) == "" ]]; then
 
+<<<<<<< HEAD
     # Adds config to SSH to key connection alive
+=======
+    # Adds config to SSH to keey connection alive
+>>>>>>> 38e6797ebdd930852821c04fd1fa9b013e7c2dfc
     if [[ -f ~/.ssh/config ]]; then
         if [[ $(egrep "ServerAliveInterval [0-9]+" ~/.ssh/config) == "" ]]; then
             echo "ServerAliveInterval 60" >> ~/.ssh/config
