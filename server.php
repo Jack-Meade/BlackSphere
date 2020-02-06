@@ -210,7 +210,6 @@
                     $file_ext   = strtolower(end(explode('.',$_FILES['file_to_upload']['name'])));
 
                     echo $_FILES[$file_name]['error'];
-                    echo "/var/www/html".$_SERVER['REQUEST_URI'].$file_name;
                     move_uploaded_file($file_tmp, "/var/www/html".$_SERVER['REQUEST_URI'].$file_name);
                 }
             ?>
