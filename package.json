@@ -1,0 +1,58 @@
+{
+  "name": "login-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.4.0",
+    "core-js": "^3.4.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "description": "Our project(Blacksphere) aims to provide a way for users to securely store their files and folders using cloud storage with an emphasis on addressing privacy concerns users might have about services such as Google Drive(Need more reasons/USPs). These concerns are addressed by not having to supply identifying information about themselves (We're not encrypting the data at rest are we?).",
+  "main": "sorttable.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jack-Meade/BlackSphere.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jack-Meade/BlackSphere/issues"
+  },
+  "homepage": "https://github.com/Jack-Meade/BlackSphere#readme"
+}
