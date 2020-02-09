@@ -1,4 +1,4 @@
-$('#mountButton').on('submit', function (event) {
+$('#mountRequestForm').on('submit', function (event) {
     event.preventDefault();
     var ip = document.getElementById();
     var username = document.getElementById();
