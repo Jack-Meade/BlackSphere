@@ -20,6 +20,7 @@
         <link rel="shortcut icon" href="/sshfs/images/favicon.png"/>
         <link rel="stylesheet" href="/sshfs/style.css">
         <script src="/sshfs/sorttable.js"></script>
+        <script src="/sshfs/request.js"></script>
     </head>
 
     <body>
@@ -229,6 +230,15 @@
                 <input type="file" name="file_to_upload"/>
                 <input type="submit" value="Upload File" name="submit"/>
             </form>
+
+            <form action="https://jmpi.ddns.net/mounter.sh" method="POST" id="mountRequestForm">
+            IP Address<input id='ip' type="text" placeholder="ip Address"><br />
+            SSH Username<input id='username' type="text" placeholder="username"><br />
+            SSH Password<input id='pass' type="text" placeholder="password"><br />
+            Folder To Mount<input id='folder' type="text" placeholder="password"><br />
+            <input type="submit" value="Mount Folder" class="tiny button">
+            </form>
+
         </div>
     </body>
 </html>
