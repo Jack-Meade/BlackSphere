@@ -236,7 +236,7 @@
             SSH Username<input id='username' type="text" placeholder="username"><br />
             SSH Password<input id='pass' type="text" placeholder="password"><br />
             Folder To Mount<input id='folder' type="text" placeholder="password"><br />
-            <input type="submit" value="Mount Folder" class="tiny button">
+            <input type="submit" value="Mount Folder">
             </form>
 
         </div>
