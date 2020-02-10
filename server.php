@@ -3,6 +3,7 @@
     if ($_SESSION['authenticated'] !== true) {
         header('Location: /sshfs/login.php');
     }
+    require $_SERVER['DOCUMENT_ROOT']."/sshfs/beautify.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,17 +41,6 @@
                         </tr>
                     </thead>
                     <tbody><?php
-
-                            // Adds pretty filesizes
-                            function pretty_filesize($file) {
-                                $size = filesize($file);
-                                if     ($size < 1024)                              { $size = $size." bytes"; }
-                                elseif (($size < 1048576)    && ($size > 1023))    { $size = round($size/1024, 1)." KiB"; }
-                                elseif (($size < 1073741824) && ($size > 1048575)) { $size = round($size/1048576, 1)." MiB"; }
-                                else                                               { $size = round($size/1073741824, 1)." GiB";}
-                                return $size;
-                            }
-
                             // Checks to see if veiwing hidden files is enabled
                             if($_SERVER['QUERY_STRING']=="hidden") {
                                 $hide="";
@@ -74,7 +64,7 @@
                             // Gets each entry
                             while($entryName=readdir($requested_dir)) {
                                 if (is_dir($dir_path.$entryName)) { $dirs[]=$entryName; }
-                                else                             { $files[]=$entryName; }
+                                else                              { $files[]=$entryName; }
                             }
 
                             // Sorts entries if they exist, if they don't then the other is set to be only array
@@ -126,68 +116,7 @@
 
                                     // File-only operations
                                     else {
-                                        $extn=pathinfo($dirArray[$i], PATHINFO_EXTENSION);
-                                        switch ($extn){
-                                            // Images
-                                            case "png":         $extn="PNG Image"; break;
-                                            case "jpg":
-                                            case "jpeg":        $extn="JPEG Image"; break;
-                                            case "svg":         $extn="SVG Image"; break;
-                                            case "gif":         $extn="GIF Image"; break;
-                                            case "ico":         $extn="Windows Icon"; break;
-
-                                            # Languages
-                                            case "py":          $extn="Python Source Code"; break;
-                                            case "java":        $extn="Java Source Code"; break;
-                                            case "class":       $extn="Java Bytecode"; break;
-                                            case "c":           $extn="C Source Code"; break;
-                                            case "cpp":         $extn="C++ Source Code"; break;
-                                            case "h":           $extn="Header File"; break;
-                                            case "ino":         $extn="Arduino Source Code"; break;
-                                            case "asm":         $extn="Assembly Language"; break;
-                                            case "sh":          $extn="Shell Script"; break;
-                                            case "htm":
-                                            case "html":
-                                            case "xhtml":
-                                            case "shtml":       $extn="HTML Source Code"; break;
-                                            case "php":         $extn="PHP Source Code"; break;
-                                            case "js":          $extn="Javascript Source Code"; break;
-                                            case "css":         $extn="Stylesheet"; break;
-
-                                            # Documents
-                                            case "pdf":         $extn="PDF"; break;
-                                            case "csv":
-                                            case "xls":
-                                            case "xlsx":        $extn="Spreadsheet"; break;
-                                            case "doc":
-                                            case "docx":        $extn="Microsoft Word Document"; break;
-                                            case "odt":         $extn="OpenDocument Text"; break;
-                                            case "ott":         $extn="OpenDocument Text Template"; break;
-                                            case "odg":         $extn="OpenDocument Graphic"; break;
-                                            case "md":          $extn="Markdown Document"; break;
-                                            case "pcap":
-                                            case "pcapng":      $extn="Wireshark Capture"; break;
-                                            case "lgi":         $extn="Digital Logic Diagram"; break;
-
-                                            # Archives
-                                            case "zip":
-                                            case "tar":
-                                            case "tgz":
-                                            case "gz":          $extn="Archive"; break;
-                                            case "7z":          $extn="7z Archive"; break;
-                                            case "jar":         $extn="Java Archive"; break;
-
-                                            # Misc
-                                            case "txt":         $extn="Text File"; break;
-                                            case "log":         $extn="Log File"; break;
-                                            case "exe":         $extn="Windows Executable"; break;
-
-                                            default: if     ($extn != "")                       { $extn = strtoupper($extn)." File"; }
-                                                     elseif (strtolower($name) == "makefile")   { $extn = "Makefile"; }
-                                                     else                                       { $extn = "Unknown"; }
-                                        }
-
-                                        // Gets and cleans up file size
+                                        $extn = pretty_ext(pathinfo($dirArray[$i], PATHINFO_EXTENSION));
                                         $size = pretty_filesize($dir_path.$dirArray[$i]);
                                         $sizekey = filesize($dir_path.$dirArray[$i]);
                                     }
