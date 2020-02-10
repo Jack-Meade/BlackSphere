@@ -16,7 +16,6 @@
                 $zip->addFile($filename, $val);
             }
         }
-        console.log(var_dump($zip));
         if ($zip->close() === false) {
             echo "no write permissions"; return;
         }
@@ -32,7 +31,9 @@
             header('Content-Length: '.filesize($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname));
             ob_end_clean();
             flush();
-            readfile($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname);
+            if(readfile($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname)){
+                unlink($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname);
+            }
             exit;
         }
     } elseif(count($_POST['file']) == 1)  {
