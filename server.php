@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="/sshfs/style.css">
         <script src="/sshfs/sorttable.js"></script>
         <script src="/sshfs/request.js"></script>
+
     </head>
 
     <body>
@@ -152,6 +153,14 @@
                     echo $_FILES[$file_name]['error'];
                     move_uploaded_file($file_tmp, "/var/www/html".$_SERVER['REQUEST_URI'].$file_name);
                 }
+
+            ?>
+            <?php
+            if ($_SESSION['authenticated'] !== true) or if(isset($_POST["LogOut"])) {
+                header('Location: /sshfs/login.php');
+                session_destroy();
+            }
+            require $_SERVER['DOCUMENT_ROOT']."/sshfs/beautify.php";
             ?>
 
             <form action="" method="POST" enctype="multipart/form-data">
@@ -167,6 +176,7 @@
             Folder To Mount<input id='folder' type="text" placeholder="password"><br />
             <input type="submit" value="Mount Folder">
             </form>
+            <button name="LogOut">Log Out</button>
 
         </div>
     </body>
