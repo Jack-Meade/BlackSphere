@@ -28,6 +28,8 @@
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
+            <button type="button" onclick="history.back();">&larr;</button>
+            <button type="button" onclick="history.forward();">&rarr;</button>
 
             <form method='POST' action="/sshfs/download.php">
                 <table class="sortable">
