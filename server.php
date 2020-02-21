@@ -2,6 +2,7 @@
     session_start();
     if ($_SESSION['authenticated'] !== true) {
         header('Location: /sshfs/login.php');
+	session_destroy();
     }
     require $_SERVER['DOCUMENT_ROOT']."/sshfs/beautify.php";
 ?>
@@ -25,6 +26,7 @@
     </head>
 
     <body>
+	<button onclick-"location.href='/sshfs/logout.php'" type="button">Log Out</button>
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
@@ -169,7 +171,7 @@
             Folder To Mount<input id='folder' type="text" placeholder="password"><br />
             <input type="submit" value="Mount Folder">
             </form>
-
+	    <button name="LogOut">Log Out</button>
         </div>
     </body>
 </html>
