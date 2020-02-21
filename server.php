@@ -26,7 +26,7 @@
     </head>
 
     <body>
-	<button onclick-"location.href='/sshfs/logout.php'" type="button">Log Out</button>
+	<button onclick="location.href='/sshfs/logout.php'" type="button">Log Out</button>
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
