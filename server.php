@@ -26,12 +26,12 @@
     </head>
 
     <body>
-	<button onclick="location.href='/sshfs/logout.php'" type="button">Log Out</button>
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
             <button type="button" onclick="history.back();">&larr;</button>
             <button type="button" onclick="history.forward();">&rarr;</button>
+            <button onclick="location.href='/sshfs/logout.php'" type="button">Log Out</button>
 
             <form method='POST' action="/sshfs/download.php">
                 <table class="sortable">
@@ -171,7 +171,6 @@
             Folder To Mount<input id='folder' type="text" placeholder="password"><br />
             <input type="submit" value="Mount Folder">
             </form>
-	    <button name="LogOut">Log Out</button>
         </div>
     </body>
 </html>
