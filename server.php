@@ -164,12 +164,13 @@
                 <input type="submit" value="Upload File" name="submit"/>
             </form>
 
-            <form action="https://jmpi.ddns.net/sshfs/mounter.sh" method="POST" id="mountRequestForm">
+            <form action="/sshfs/mounter.php" method="POST" id="mountRequestForm">
                 <h1>Mount your folder to BlackSphere</h1>
-                IP Address:  <input id='ip'            type="text" placeholder="IP Address"><br />
-                SSH Username:  <input id='username'    type="text" placeholder="Username"><br />
-                SSH Password:  <input id='pass'        type="text" placeholder="Password"><br />
-                Folder To Mount:  <input id='folder'   type="text" placeholder="Path"><br />
+                IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
+                SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
+                SSH Password:       <input id='pass'     name="pass"     type="password" placeholder="Password"><br />
+                Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Path"><br />
+                Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
                 <input type="submit" value="Mount Folder">
             </form>
         </div>
