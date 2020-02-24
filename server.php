@@ -170,11 +170,7 @@
                 <input type="submit" value="Upload File" name="submit"/>
             </form>
 
-<<<<<<< Updated upstream
             <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
-=======
-            <form  id="mountRequestForm"> <!-- action="/sshfs/mounter.php" method="POST" -->
->>>>>>> Stashed changes
                 <h1>Mount your folder to BlackSphere</h1>
                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
