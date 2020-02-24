@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="/sshfs/style.css">
         <link rel="stylesheet" href="/sshfs/css/all.css">
         <script src="/sshfs/sorttable.js"></script>
-        <script src="/sshfs/request.js"></script>
+        <script src="/sshfs/requests.js"></script>
     </head>
 
     <body>
