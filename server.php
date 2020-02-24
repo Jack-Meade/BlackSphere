@@ -22,6 +22,7 @@
         <link rel="shortcut icon" href="/bs/images/favicon.png"/>
         <link rel="stylesheet" href="/bs/style.css">
         <link rel="stylesheet" href="/bs/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="/bs/sorttable.js"></script>
         <script src="/bs/requests.js"></script>
     </head>
@@ -169,12 +170,16 @@
                 <input type="submit" value="Upload File" name="submit"/>
             </form>
 
+<<<<<<< Updated upstream
             <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
+=======
+            <form  id="mountRequestForm"> <!-- action="/sshfs/mounter.php" method="POST" -->
+>>>>>>> Stashed changes
                 <h1>Mount your folder to BlackSphere</h1>
                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
-                SSH Password:       <input id='pass'     name="pass"     type="password" placeholder="Password"><br />
-                Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Path"><br />
+                SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
+                Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
                 <input type="submit" value="Mount Folder">
             </form>
