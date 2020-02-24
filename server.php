@@ -177,7 +177,7 @@
                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
                 Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
-                <input type="submit" value="Mount Folder YIKEOES">
+                <input type="submit" value="Mount Folder">
             </form>
         </div>
     </body>
