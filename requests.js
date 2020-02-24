@@ -9,7 +9,7 @@ $('#mountRequestForm').on('submit', function (event) {
     requestMount(ip, username, password,mname, path);
 });
 
-function requestMount(ip, user, password, path)
+function requestMount(ip, username, password, mname, path)
 {
     $.ajax({
         url: "https://jmpi.ddns.net/mounter.php", // the endpoint
@@ -19,7 +19,6 @@ function requestMount(ip, user, password, path)
         // handle a successful response
         success: function (json) {
             var response = json;
-            
             // On success show something to user
         },
 
