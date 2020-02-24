@@ -22,9 +22,12 @@
         <link rel="shortcut icon" href="/bs/images/favicon.png"/>
         <link rel="stylesheet" href="/bs/style.css">
         <link rel="stylesheet" href="/bs/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.css"> <!--Temporary -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="/bs/sorttable.js"></script>
         <script src="/bs/requests.js"></script>
+        <script src='/bs/dropzone.js' type='text/javascript'></script>
+        <script src='/bs/dzOptions.js' type='text/javascript'></script>
     </head>
 
     <body>
@@ -164,11 +167,13 @@
                 }
             ?>
 
-            <form action="" method="POST" enctype="multipart/form-data">
-                Select file to upload:
-                <input type="file" name="file_to_upload"/>
-                <input type="submit" value="Upload File" name="submit"/>
+            <button id="submit-all">Submit all files</button>
+            <div id="dropzone">
+            <form action="/upload" class="dropzone" id="myDropzone">
+              <p class="dz-message">Drop your files here, then click submit to  upload them</p>
             </form>
+           </div>
+
 
             <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
                 <h1>Mount your folder to BlackSphere</h1>
@@ -177,7 +182,7 @@
                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
                 Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
-                <input type="submit" value="Mount Folder YIKEOES">
+                <input type="submit" value="Mount Folder">
             </form>
         </div>
     </body>
