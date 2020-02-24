@@ -6,6 +6,10 @@
     $pass       = $_POST["pass"];
 
     exec("mkdir TopLevelDir/$mount");
-    exec("./mounter.sh $username $ip $path $mount $pass 2>&1 &");
-    header('Location: '.$_SERVER['HTTP_REFERER'].'');
+    exec("./mounter.sh $username $ip $path $mount $pass 2>&1 &", $output, $return_var);
+    for ($i=0; $i < 20; $i++) {
+        echo $output[$i]; echo "<br>";
+    }
+
+    //header('Location: '.$_SERVER['HTTP_REFERER'].'');
 ?>
