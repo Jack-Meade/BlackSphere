@@ -34,6 +34,7 @@
         <div id="container">
             <img src="/bs/blackspherelogo.png"/>
             <img src="/bs/assets/meme.gif"/>
+            <img src="/bs/assets/meme.gif"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
             <button type="button" onclick="history.back();">&larr;</button>
             <button type="button" onclick="history.forward();">&rarr;</button>
