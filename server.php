@@ -21,6 +21,7 @@
             ?></title>
         <link rel="shortcut icon" href="/sshfs/images/favicon.png"/>
         <link rel="stylesheet" href="/sshfs/style.css">
+        <link rel="stylesheet" href="/sshfs/css/all.css">
         <script src="/sshfs/sorttable.js"></script>
         <script src="/sshfs/request.js"></script>
     </head>
@@ -28,21 +29,23 @@
     <body>
         <div id="container">
             <img src="/sshfs/blackspherelogo.png"/>
+            <img src="/sshfs/meme.gif"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
             <button type="button" onclick="history.back();">&larr;</button>
             <button type="button" onclick="history.forward();">&rarr;</button>
             <button onclick="location.href='/sshfs/logout.php'" type="button">Log Out</button>
 
-            <form method='POST' action="/sshfs/download.php">
+            <form id="dir_form" method='POST' action="/sshfs/download.php">
                 <table class="sortable">
                     <thead>
                         <tr>
-                            <th>Marked for Download</th>
+                            <th></th>
                             <th>Filename</th>
                             <th>Type</th>
                             <th>Size</th>
                             <th>Date Modified</th>
                         </tr>
+
                     </thead>
                     <tbody><?php
                             // Checks to see if veiwing hidden files is enabled
@@ -140,10 +143,12 @@
 
                     </tbody>
                 </table>
-                <input type='submit' value='Download Selected Files'>
-            </form>
 
-            <h2><?php echo("<a href='$ahref'>$atext hidden files</a>"); ?></h2>
+            </form>
+            <div id="butt_div">
+                <button form="dir_form" type="submit" class="fabutton"> <i class="fas fa-download"></i> Download</button>
+                <?php echo("<button type='button' class='fabutton' onclick= window.location.href='$ahref'><i class=\"fas fa-eye\"></i> $atext hidden files</button>"); ?>
+            </div>
 
             <?php
                 if(isset($_FILES['file_to_upload'])){
