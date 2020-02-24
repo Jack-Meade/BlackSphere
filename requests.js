@@ -1,18 +1,18 @@
 $('#mountRequestForm').on('submit', function (event) {
     event.preventDefault();
-    var ip = document.getElementById();
-    var username = document.getElementById();
-    var password = document.getElementById();
-    var mname = document.getElementById();
-    var path = document.getElementById();
+    var ip = document.getElementById("ip");
+    var username = document.getElementById("username");
+    var password = document.getElementById("pass");
+    var mname = document.getElementById("mname");
+    var path = document.getElementById("folder");
 
-    requestMount(ip, username, password,mname, path);
+    requestMount(ip, username, password, mname, path);
 });
 
 function requestMount(ip, username, password, mname, path)
 {
     $.ajax({
-        url: "https://jmpi.ddns.net/mounter.php", // the endpoint
+        url: "/bs/mounter.php", // the endpoint
         type: "POST", // http method
         data: { ip: ip, username: username, password: password, mname: mname, path: path}, // data sent with the post request
 

@@ -28,11 +28,11 @@
         } else {
             header('Content-type: application/zip');
             header('Content-Disposition: attachment; filename="'.$zipname.'"');
-            header('Content-Length: '.filesize($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname));
+            header('Content-Length: '.filesize($_SERVER['DOCUMENT_ROOT'].'/bs/'.$zipname));
             ob_end_clean();
             flush();
-            if(readfile($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname)){
-                unlink($_SERVER['DOCUMENT_ROOT'].'/sshfs/'.$zipname);
+            if(readfile($_SERVER['DOCUMENT_ROOT'].'/bs/'.$zipname)){
+                unlink($_SERVER['DOCUMENT_ROOT'].'/bs/'.$zipname);
             }
             exit;
         }

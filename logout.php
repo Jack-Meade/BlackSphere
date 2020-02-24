@@ -1,5 +1,5 @@
 <?php
     session_start();
     session_destroy();
-    header("Location:/sshfs/login.php");
+    header("Location:/bs/login.php");
 ?>

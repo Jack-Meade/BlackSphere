@@ -1,41 +1,41 @@
 <?php
     session_start();
     if ($_SESSION['authenticated'] !== true) {
-        header('Location: /sshfs/login.php');
+        header('Location: /bs/login.php');
 	session_destroy();
     }
-    require $_SERVER['DOCUMENT_ROOT']."/sshfs/beautify.php";
+    require $_SERVER['DOCUMENT_ROOT']."/bs/beautify.php";
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>BlackSphere | <?php
-                if ($_SERVER['REQUEST_URI'] != "/sshfs/" && $_SERVER['REQUEST_URI'] != "/sshfs/?hidden")
-                    { $dir_path = str_replace("/sshfs", "", $_SERVER['REQUEST_URI']); }
+                if ($_SERVER['REQUEST_URI'] != "/bs/" && $_SERVER['REQUEST_URI'] != "/bs/?hidden")
+                    { $dir_path = str_replace("/bs", "", $_SERVER['REQUEST_URI']); }
                 else
-                    { $dir_path = "/sshfs/"; }
+                    { $dir_path = "/bs/"; }
 
                 $dir_path = str_replace("?hidden", "", $dir_path);
                 echo($dir_path);
             ?></title>
-        <link rel="shortcut icon" href="/sshfs/images/favicon.png"/>
-        <link rel="stylesheet" href="/sshfs/style.css">
-        <link rel="stylesheet" href="/sshfs/css/all.css">
-        <script src="/sshfs/sorttable.js"></script>
-        <script src="/sshfs/requests.js"></script>
+        <link rel="shortcut icon" href="/bs/images/favicon.png"/>
+        <link rel="stylesheet" href="/bs/style.css">
+        <link rel="stylesheet" href="/bs/css/all.css">
+        <script src="/bs/sorttable.js"></script>
+        <script src="/bs/requests.js"></script>
     </head>
 
     <body>
         <div id="container">
-            <img src="/sshfs/blackspherelogo.png"/>
-            <img src="/sshfs/meme.gif"/>
+            <img src="/bs/blackspherelogo.png"/>
+            <img src="/bs/meme.gif"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
             <button type="button" onclick="history.back();">&larr;</button>
             <button type="button" onclick="history.forward();">&rarr;</button>
-            <button onclick="location.href='/sshfs/logout.php'" type="button">Log Out</button>
+            <button onclick="location.href='/bs/logout.php'" type="button">Log Out</button>
 
-            <form id="dir_form" method='POST' action="/sshfs/download.php">
+            <form id="dir_form" method='POST' action="/bs/download.php">
                 <table class="sortable">
                     <thead>
                         <tr>
@@ -60,8 +60,8 @@
                             }
 
                             // Opens directory, trimming URL to map onto directory structure
-                            if (strpos($_SERVER['REQUEST_URI'], "/sshfs/") !== false) {
-                                $dir_path = str_replace("/sshfs", "../sshfs", $_SERVER['REQUEST_URI']);
+                            if (strpos($_SERVER['REQUEST_URI'], "/bs/") !== false) {
+                                $dir_path = str_replace("/bs", "../bs", $_SERVER['REQUEST_URI']);
                             }
 
 
@@ -169,7 +169,7 @@
                 <input type="submit" value="Upload File" name="submit"/>
             </form>
 
-            <form action="/sshfs/mounter.php" method="POST" id="mountRequestForm">
+            <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
                 <h1>Mount your folder to BlackSphere</h1>
                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
