@@ -39,7 +39,7 @@
     <body>
         <div id="container">
             <img src="/bs/blackspherelogo.png"/>
-            <h1>Directory Contents of <?php echo($dir_path); ?></h1>
+
             <div id="headerButtons">
                 <div id="backForwardBtn">
                     <button type="button" class="btn btn-dark" onclick="history.back();">&larr;</button>
@@ -48,7 +48,14 @@
                 <button type="button" class="btn btn-danger" onclick="location.href='/bs/logout.php'">Log Out</button>
             </div>
             <form id="dir_form" method='POST' action="/bs/download.php">
-                <table id="sorttable">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="5">
+                                <?php echo($dir_path); ?>
+                            </th>
+                        </tr>
+                    </thead>
                     <thead class="thead-dark">
                         <tr>
                             <th></th>
