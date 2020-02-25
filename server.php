@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <title>BlackSphere | <?php
                 if ($_SERVER['REQUEST_URI'] != "/bs/" && $_SERVER['REQUEST_URI'] != "/bs/?hidden")
-                    { $dir_path = str_replace("/test", "", $_SERVER['REQUEST_URI']); }
+                    { $dir_path = str_replace("/bs", "", $_SERVER['REQUEST_URI']); }
                 else
                     { $dir_path = "/bs/"; }
 
@@ -40,13 +40,16 @@
         <div id="container">
             <img src="/bs/blackspherelogo.png"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
-            <button type="button" onclick="history.back();">&larr;</button>
-            <button type="button" onclick="history.forward();">&rarr;</button>
-            <button onclick="location.href='/bs/logout.php'" type="button">Log Out</button>
-
+            <div id="headerButtons">
+                <div id="backForwardBtn">
+                    <button type="button" class="btn btn-dark" onclick="history.back();">&larr;</button>
+                    <button type="button" class="btn btn-dark" onclick="history.forward();">&rarr;</button>
+                </div>
+                <button type="button" class="btn btn-danger" onclick="location.href='/bs/logout.php'">Log Out</button>
+            </div>
             <form id="dir_form" method='POST' action="/bs/download.php">
-                <table class="sortable">
-                    <thead>
+                <table id="sorttable">
+                    <thead class="thead-dark">
                         <tr>
                             <th></th>
                             <th>Filename</th>
@@ -154,10 +157,12 @@
                 </table>
 
             </form>
+
             <div id="butt_div">
                 <button form="dir_form" type="submit" class="btn btn-primary"> <i class="fas fa-download"></i> Download</button>
+                <button type="button" data-target="#modalUpload" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-upload"></i> Upload </button>
+                <button type="button" data-target="#modalMount" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-cloud-upload-alt"></i> Mount Folder </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpload"> Upload </button>
             </div>
 
             <?php
@@ -174,43 +179,60 @@
             ?>
 
 
-
-
-           <!-- Modal -->
-           <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
-             <div class="modal-dialog modal-dialog-centered" role="document">
-               <div class="modal-content">
-                 <div class="modal-header">
-                   <h5 class="modal-title" id="modalUploadTitle">Upload</h5>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                   </button>
-                 </div>
-                 <div class="modalUploadBody">
-                     <!-- <button id="submit-all">Submit all files</button> -->
-                     <div id="dropzone">
-                     <form action="/upload" class="dropzone" id="myDropzone">
-                       <p class="dz-message">Drop your files here, then click submit to  upload them</p>
-                     </form>
+            <!-- Modal for uploading a file-->
+            <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalUploadTitle">Upload</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modalBody">
+                            <div id="dropzone">
+                                <form action="/upload" class="dropzone" id="myDropzone">
+                                    <p class="dz-message">Drop your files here, then click submit to  upload them</p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" id="submit-all" class="btn btn-primary">Upload</button>
+                        </div>
                     </div>
-                 </div>
-                 <div class="modalUploadFooter">
-                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                   <button type="button" id="submit-all" class="btn btn-primary">Upload</button>
-                 </div>
-               </div>
-             </div>
-           </div>
+                </div>
+            </div>
+            <!-- End of modal -->
+            <!-- Modal for mounting a directory-->
+            <div class="modal fade" id="modalMount" tabindex="-1" role="dialog" aria-labelledby="modalMount" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalMountTitle">Mount your folder to BlackSphere</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modalBody">
+                            <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
+                                IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
+                                SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
+                                SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
+                                Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
+                                Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
+                            </form>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form="mountRequestForm" type="submit" class="btn btn-primary">Mount Folder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of modal -->
 
-            <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
-                <h1>Mount your folder to BlackSphere</h1>
-                IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
-                SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
-                SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
-                Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
-                Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
-                <input type="submit" value="Mount Folder">
-            </form>
+
         </div>
     </body>
 </html>
