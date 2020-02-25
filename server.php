@@ -21,19 +21,19 @@
             ?></title>
         <link rel="shortcut icon" href="/bs/images/favicon.png"/>
         <link rel="stylesheet" href="/bs/style.css">
-        <link rel="stylesheet" href="/bs/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.css"> <!--Temporary -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="/bs/sorttable.js"></script>
         <script src="/bs/requests.js"></script>
-        <script src='/bs/dropzone.js' type='text/javascript'></script>
-        <script src='/bs/dzOptions.js' type='text/javascript'></script>
+        <script src='/test/dropzone.js' type='text/javascript'></script>
+        <script src='/test/dzOptions.js' type='text/javascript'></script>
     </head>
 
     <body>
         <div id="container">
             <img src="/bs/blackspherelogo.png"/>
-            <img src="/bs/assets/meme.gif"/>
             <img src="/bs/assets/meme.gif"/>
             <h1>Directory Contents of <?php echo($dir_path); ?></h1>
             <button type="button" onclick="history.back();">&larr;</button>
