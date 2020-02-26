@@ -150,7 +150,7 @@
                                     // Output
                                     echo("
                         <tr class='$class'>
-                            <td><input type='checkbox' value='$namehref' name='file[$i]'/></td>
+                            <td><input type='checkbox' class='form-check-input' value='$namehref' name='file[$i]'/></td>
                             <td><a href='./$namehref'$favicon class='name'>$name</a></td>
                             <td><a href='./$namehref'>$extn</a></td>
                             <td sorttable_customkey='$sizekey'><a href='./$namehref'>$size</a></td>
