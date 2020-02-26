@@ -42,7 +42,7 @@
 
             <div id="headerButtons">
                 <div id="backForwardBtn">
-                    <button type="button" class="btn btn-dark" onclick="history.back();">&larr;</button>
+                    <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&larr;</button>
                     <button type="button" class="btn btn-dark" onclick="history.forward();">&rarr;</button>
                 </div>
                 <button type="button" class="btn btn-danger" onclick="location.href='/bs/logout.php'">Log Out</button>
