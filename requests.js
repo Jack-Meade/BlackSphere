@@ -4,9 +4,9 @@ $('#mountRequestForm').on('submit', function (event) {
     var username = document.getElementById("username");
     var password = document.getElementById("pass");
     var mname = document.getElementById("mname");
-    var path = document.getElementById("folder");
+    var folder = document.getElementById("folder");
 
-    requestMount(ip, username, password, mname, path);
+    requestMount(ip, username, password, mname, folder);
 });
 
 function requestMount(ip, username, password, mname, path)
@@ -14,7 +14,7 @@ function requestMount(ip, username, password, mname, path)
     $.ajax({
         url: "/bs/mounter.php", // the endpoint
         type: "POST", // http method
-        data: { ip: ip, username: username, password: password, mname: mname, path: path}, // data sent with the post request
+        data: { ip: ip, username: username, password: password, mname: mname, folder: folder}, // data sent with the post request
 
         // handle a successful response
         success: function (json) {
