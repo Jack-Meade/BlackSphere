@@ -188,7 +188,7 @@
 
             <!-- Modal for uploading a file-->
             <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalUploadTitle">Upload</h5>
@@ -196,16 +196,14 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modalBody">
-                            <div id="dropzone">
-                                <form action="/upload" class="dropzone" id="myDropzone">
-                                    <p class="dz-message">Drop your files here, then click submit to  upload them</p>
-                                </form>
-                            </div>
+                        <div class="modalBody" id="dropzone">
+                            <form action="https://jmpi.ddns.net/bs/uploads/" class="dropzone dz-clickable" id="myDropzone">
+                                <p class="dz-message">Drop your files here, then click submit to  upload them</p>
+                            </form>
                         </div>
                         <div class="modalFooter">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" id="submit-all" class="btn btn-primary">Upload</button>
+                            <button form="myDropzone" type="button" id="submit-all" class="btn btn-primary">Upload</button>
                         </div>
                     </div>
                 </div>
