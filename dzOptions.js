@@ -4,14 +4,17 @@ window.onload = function () {
   var dropzoneOptions = {
     dictDefaultMessage: 'Drop Here!',
     paramName: "file",
-    maxFilesize: 100, // MB
+    maxFilesize: 100,   // MB
+    thumbnailWidth: null,
+    thumbnailHeight: null,
     addRemoveLinks: true,
     autoProcessQueue: false,
+
     init: function () {
-      this.on("success", function (file) {
-        console.log("success > " + file.name);
-      });
-    }
+        this.on("success", function(file) {
+            console.log("success > " + file.name);
+        });
+    },
   };
   var submitButton = document.querySelector("#submit-all");
   var uploader = document.querySelector('#myDropzone');

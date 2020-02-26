@@ -1,45 +1,45 @@
 head {
-  color:black;
-  text-align: center;
+    color: black;
+    text-align: center;
 }
 
 img {
-  width:250px;
-  height:200px;
+    width: 250px;
+    height: 200px;
 }
 
 body {
-  background-color: white;
-  font-family:Helvetica, sans-serif;
-  margin:5px;;
+    background-color: white;
+    font-family: Helvetica, sans-serif;
+    margin: 5px;
+    ;
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
-
 a:link {
-  color:black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 a:hover {
-  color:#00ff00;
+    color: #00ff00;
 }
 
 td a {
-  display: block;
-  height: 100%;
-  width: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2
+    background-color: #f2f2f2;
 }
 
 th {
-    height:2em;
+    height: 2em;
 }
 
 th:first-child, td:first-child {
@@ -47,74 +47,53 @@ th:first-child, td:first-child {
     width: 20px;
     text-align: center;
 }
-input[type='checkbox']{
+
+input[type='checkbox'] {
     /* static to remove bootstraps absolute value */
-    position:static;
+    position: static;
     margin: 0 auto;
     vertical-align: middle;
-
-
 }
-#headerButtons{
+
+#headerButtons {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 #mountRequestForm {
-    margin:0 auto;
+    margin: 0 auto;
     width: 0 auto;
     text-align: right;
     padding: 5px;
     margin-bottom: 5px;
 }
 
-.modalBody{
+.modalBody {
     display: flex;
     justify-content: center;
-    padding:2px;
-}
-.modalFooter{
-    display:flex;
-    justify-content:center;
-}
-.modalFooter button{
-    margin:5px;
+    padding: 2px;
 }
 
-.dropzone, .dropzone * {
-    box-sizing: border-box;
+.modalFooter {
+    display: flex;
+    justify-content: center;
+}
+
+.modalFooter button {
+    margin: 5px;
 }
 .dropzone {
-    padding: 20px 20px;
+    background: white;
+    border: 2px dashed rgb(0, 135, 247);
+    width:100%;
 }
-.dropzone.dz-clickable {
-    cursor: pointer;
+.dz-preview .dz-image img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
-.dropzone.dz-clickable * {
-    cursor: default;
-}
-.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
-    cursor: pointer;
-}
-.dropzone.dz-started .dz-message {
-    display: none;
-}
-.dropzone.dz-drag-hover {
-    border-style: solid;
-}
-.dropzone.dz-drag-hover .dz-message {
-    opacity: 0.5;
-}
-.dropzone .dz-message {
-    text-align: center;
-    margin: 2em 0;
-}
-.dropzone .dz-message .dz-button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
+.dz-progress {
+  /* progress bar covers the filename and photo; annoying*/
+  /* display: none !important; */
+  top:5% !important;
 }
