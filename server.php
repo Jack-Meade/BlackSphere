@@ -68,7 +68,7 @@
                     </thead>
 
                     <tbody>
-                        <?php echo body_builder(); ?>
+                        <?php $atext = body_builder(); ?>
                     </tbody>
                 </table>
 
@@ -130,11 +130,11 @@
                             </button>
                         </div>
                         <div class="modalBody">
-                            <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
+                        <form id="mountRequestForm"> <!-- action="/bs/mounter.php" method="POST" -->
                                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
                                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
-                                Folder To Mount:    <input id='path'     name="path"     type="text"     placeholder="Path"><br />
+                                Folder To Mount:    <input id='folder'     name="folder"     type="text"     placeholder="Folder"><br />
                                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
                             </form>
                         </div>
@@ -149,5 +149,18 @@
 
 
         </div>
+        <script>
+            $('#mountRequestForm').on('submit', function (event) {
+                event.preventDefault();
+                var ip = document.getElementById("ip");
+                var username = document.getElementById("username");
+                var password = document.getElementById("password");
+                var mname = document.getElementById("mname");
+                var folder = document.getElementById("folder");
+
+                console.log(ip, username, password, mname, folder);
+                requestMount(ip, username, password, mname, folder);
+            });
+        </script>
     </body>
 </html>
