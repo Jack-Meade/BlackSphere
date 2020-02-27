@@ -25,8 +25,8 @@ Arch: `sudo pacman -S nginx`
 # Authors
 * Bradley Aherne
 * Daniels Bindemans
-* Jack Meade
 * Conor McDonald
+* Jack Meade
 * Cian Twomey
 * Alexander Smith
 
