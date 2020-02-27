@@ -1,41 +1,34 @@
-# BlackSphere
-## Very Rough Draft
-Our project(Blacksphere) aims to provide a way for users to securely store their files and folders using cloud storage with an emphasis on addressing privacy concerns users might have about services such as Google Drive(Need more reasons/USPs). These concerns are addressed by not having to supply identifying information about themselves (We're not encrypting the data at rest are we?).
+# About
+Blacksphere aims to provide a way for users to securely store their files and folders using cloud storage with an emphasis on addressing privacy concerns users might have about services such as Google Drive.
 
- Authentication is provided by means of shared keys, users can share these with friends/colleagues if they so wish. Local and cloud folders are kept in sync automatically.
+Authentication is provided by means of shared keys, users can share these with friends/colleagues if they so wish. Local and cloud folders are kept in sync automatically.
 
-# Getting Started
-How to get the project working on your system.
+Users can mount their local directories on to the BlackSphere server so others on the network can access the shared files.
 
-## Dependencies and Prerequisites
-
-### Python
-Debian/Ubuntu: `sudo apt install -y python3 `
-
-Arch: `sudo pacman -S python3`
-
-### sshfs
+# Dependencies and Prerequisites
+## SSHFS
 Debian/Ubuntu: `sudo apt install -y sshfs`
 
 Arch: `sudo pacman -S sshfs`
 
+## PHP
+Debian/Ubuntu: `sudo apt install -y php`
 
-## Contributing
+Arch: `sudo pacman -S php`
 
-## Authors
-Jack Meade
+## NGINX
+Debian/Ubuntu: `sudo apt install -y nginx`
 
-Cian Twomey
+Arch: `sudo pacman -S nginx`
 
-Daniels Leonards
 
-Bradley Aherne
+# Authors
+* Bradley Aherne
+* Daniels Bindemans
+* Jack Meade
+* Conor McDonald
+* Cian Twomey
+* Alexander Smith
 
-Conor McDonald
-
-Alexander Smith
-
-## License
-MIT(?)
-
-## Acknowledgments
+# License
+GNU Affero General Public License v3.0
