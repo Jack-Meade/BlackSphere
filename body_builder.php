@@ -97,7 +97,7 @@
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
-        $output = stripVars(body_builder()[0]);
-        echo $output;
+        list($html, $atext) = body_builder();
+         echo $atext;
     }
 ?>
