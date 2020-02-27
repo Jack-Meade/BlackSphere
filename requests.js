@@ -24,7 +24,7 @@ function refresh() {
     $.ajax({
         url: "/bs/body_builder.php", // the endpoint
         type: "POST", // http method
-        data: { function: "1", folder: window.location.href.substring(window.location.hostname.length + 7) }, // data sent with the post request
+        data: { function: "1", folder: window.location.href.substring(window.location.hostname.length + 8) }, // data sent with the post request
 
         // handle a successful response
         success: function (html_body) {
@@ -34,7 +34,7 @@ function refresh() {
             console.log(response);
             console.log(window.location.hostname);
             console.log(window.location.href);
-            console.log(window.location.href.substring(window.location.hostname.length + 7));
+            console.log(window.location.href.substring(window.location.hostname.length + 8));
         },
 
         error: function (xhr, errmsg, err) {
