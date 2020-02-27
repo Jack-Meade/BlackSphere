@@ -31,7 +31,7 @@ function refresh() {
             // On success show something to user
             console.log(response);
             console.log(window.location.href.substring(window.location.hostname.length + 8));
-            $("#directoryStructure").replaceWith("<tbody>" + response + " </tbody>")
+            $("#directoryStructure").replaceWith("<tbody id=\"directoryStructure\">" + response + " </tbody>")
         },
 
         error: function (xhr, errmsg, err) {
