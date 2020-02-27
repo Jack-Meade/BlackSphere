@@ -161,6 +161,7 @@
                         <div class="modalBody">
                             <form action= "serverSideExecutables/makefolder.php" id="modalmkdirForm">
                                 Folder Name:    <input id="folderName" name="folderName" type="text" placeholder="New Folder" default="new_folder"/>
+                                <input type="hidden" id="currentFolder" name="currentFolder" value=<?php echo $_SERVER['REQUEST_URI'] ?>/>
                             </form>
                         </div>
                         <div class="modalFooter">
