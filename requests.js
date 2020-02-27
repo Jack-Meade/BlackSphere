@@ -1,17 +1,3 @@
-function main(){    
-    $('#mountRequestForm').on('submit', function (event) {
-        event.preventDefault();
-        var ip = document.getElementById("ip");
-        var username = document.getElementById("username");
-        var password = document.getElementById("pass");
-        var mname = document.getElementById("mname");
-        var folder = document.getElementById("folder");
-        
-        console.log(ip, username, password, mname, folder);
-        requestMount(ip, username, password, mname, folder);
-    });
-}
-
 function requestMount(ip, username, password, mname, folder) {
     $.ajax({
         url: "/bs/mounter.php", // the endpoint

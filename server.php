@@ -150,6 +150,17 @@
         </div>
         <script>
             window.addEventListener('DOMContentLoaded', main(), false);
+            $('#mountRequestForm').on('submit', function (event) {
+                event.preventDefault();
+                var ip = document.getElementById("ip");
+                var username = document.getElementById("username");
+                var password = document.getElementById("password");
+                var mname = document.getElementById("mname");
+                var folder = document.getElementById("folder");
+                
+                console.log(ip, username, password, mname, folder);
+                requestMount(ip, username, password, mname, folder);
+            });
             refresh();
         </script>
     </body>
