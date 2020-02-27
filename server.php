@@ -152,6 +152,18 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalmkdirTitle">New Folder</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modalBody">
+                            <form id="modalmkdirForm">
+                                Folder Name:    <input id="folderName" name="folderName" type="text" placeholder="New Folder" default="new_folder">
+                            </form>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form="modalmkdirForm" type="submit" class="btn btn-primary">Mount Folder</button>
                         </div>
                     </div>
                 </div>
