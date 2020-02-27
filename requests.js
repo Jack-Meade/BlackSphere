@@ -29,6 +29,8 @@ function refresh() {
         success: function (html_body) {
             var response = html_body.replace(/\\\//g, "/");
             // On success show something to user
+            console.log(response);
+            console.log(window.location.href.substring(window.location.hostname.length + 8));
             $("#directoryStructure").replaceWith("<tbody>" + response + " </tbody>")
         },
 
