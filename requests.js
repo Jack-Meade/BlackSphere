@@ -29,7 +29,7 @@ function refresh() {
         // handle a successful response
         success: function (html_body) {
             console.log("refresh");
-            var response = html_body.replace(/\//g, '</');
+            var response = html_body.replace(/\//g, '');
             // On success show something to user
             console.log(response);
             console.log(window.location.hostname);
