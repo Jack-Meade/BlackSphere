@@ -68,7 +68,7 @@
 
                     </thead>
 
-                    <tbody>
+                    <tbody id="directoryStructure">
                         <?php list($html, $atext) = body_builder(); echo $html; ?>
                     </tbody>
                 </table>
