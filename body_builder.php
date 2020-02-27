@@ -83,7 +83,7 @@
                 }
 
                 // Output
-                $help = $html."
+                $html = $html."
     <tr class='$class'>
         <td><input type='checkbox' class='form-check-input' value='$namehref' name='file[$i]'/></td>
         <td><a href='./$namehref'$favicon class='name'>$name</a></td>
@@ -93,11 +93,11 @@
     </tr>";
             }
         }
-        return array($help, $atext);
+        return array($html, $atext);
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
-        list($help, $atext) = body_builder();
-        echo $help;
+        list($html, $atext) = body_builder();
+        echo $html;
     }
 ?>
