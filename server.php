@@ -32,6 +32,7 @@
 
         <script src="/bs/sorttable.js"></script>
         <script src="/bs/requests.js"></script>
+        <script src="/bs/validateCSRF.js"></script>
         <script src='/bs/dropzone.js' type='text/javascript'></script>
         <script src='/bs/dzOptions.js' type='text/javascript'></script>
     </head>
@@ -152,6 +153,8 @@
 
         </div>
         <script>
+            mainVali();
+            
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
                 var ip = document.getElementById("ip");
