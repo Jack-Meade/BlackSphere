@@ -93,6 +93,7 @@
     </tr>";
             }
         }
+        echo $html;
         return $html;
     }
 ?>
