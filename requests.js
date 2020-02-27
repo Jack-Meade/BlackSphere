@@ -35,7 +35,7 @@ function requestMount(ip, username, password, mname, folder) {
 
 function refresh() {
     $.ajax({
-        url: "/bs/bodyBuilder.php", // the endpoint
+        url: "/bs/body_builder.php", // the endpoint
         type: "POST", // http method
         data: {}, // data sent with the post request
 
