@@ -32,9 +32,6 @@
             header('Location: /bs/TopLevelDir/');
         } else {
             gen_html();
-            var_dump($_POST['nkey']);
-            echo "<br>";
-            var_dump($passwd);
         }
     } else {
         gen_html();
