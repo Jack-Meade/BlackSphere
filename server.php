@@ -4,7 +4,7 @@
         header('Location: /bs/login.php');
 	session_destroy();
     }
-    require $_SERVER['DOCUMENT_ROOT']."/bs/builder.php";
+    require $_SERVER['DOCUMENT_ROOT']."/bs/body_builder.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,7 +68,7 @@
                     </thead>
 
                     <tbody>
-                        <?php echo builder(); ?>
+                        <?php echo body_builder(); ?>
                     </tbody>
                 </table>
 
