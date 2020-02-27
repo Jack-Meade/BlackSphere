@@ -96,7 +96,7 @@
         return $html;
     }
     $runFunction = $_POST['function'];
-    if($runFunction == '1') {
+    if($runFunction === '1') {
         echo body_builder();
     }
 ?>
