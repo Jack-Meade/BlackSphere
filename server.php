@@ -149,7 +149,6 @@
 
         </div>
         <script>
-            window.addEventListener('DOMContentLoaded', refresh(), false);
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
                 var ip = document.getElementById("ip");
