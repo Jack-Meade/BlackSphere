@@ -93,11 +93,11 @@
     </tr>";
             }
         }
-        return array($html, $atext);
+        return array($html, $atext, $dir_path);
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
-        list($html, $atext) = body_builder();
-        echo json_encode($html);
+        list($html, $atext, $dir_path) = body_builder();
+        echo json_encode($dir_path);
     }
 ?>
