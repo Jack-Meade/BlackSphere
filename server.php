@@ -78,7 +78,7 @@
                 <button form="dir_form" type="submit" class="btn btn-primary"> <i class="fas fa-download"></i> Download</button>
                 <button type="button" data-target="#modalUpload" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-upload"></i> Upload </button>
                 <button type="button" data-target="#modalMount" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-cloud-upload-alt"></i> Mount Folder </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
+                <button type="button" data-target="#modalmkdir" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
 
@@ -147,7 +147,15 @@
             </div>
             <!-- End of modal -->
             <!-- Start of Modal For Making a Folder --> 
-            
+            <div class="modal fade" id="modalmkdir" tabindex="-1" role="dialog" aria-labelledby="modalmkdir" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalmkdirTitle">New Folder</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- End of Modal for making a fodler -->
 
 
