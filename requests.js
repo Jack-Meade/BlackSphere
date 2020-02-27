@@ -32,6 +32,8 @@ function refresh() {
             var response = html_body;
             // On success show something to user
             console.log(response);
+            console.log(window.location.hostname);
+            console.log(window.location.href);
             console.log(window.location.href.substring(window.location.hostname.length - 1));
         },
 
