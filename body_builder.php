@@ -97,6 +97,7 @@
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
-        echo body_builder()[0];
+        // echo body_builder()[0];
+        echo "HTML TEST"
     }
 ?>
