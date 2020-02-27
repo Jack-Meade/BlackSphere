@@ -37,7 +37,7 @@ function refresh() {
     $.ajax({
         url: "/bs/bodyBuilder.php", // the endpoint
         type: "POST", // http method
-        data: { ip: ip, username: username, password: password, mname: mname, folder: folder }, // data sent with the post request
+        data: {}, // data sent with the post request
 
         // handle a successful response
         success: function (html_body) {
