@@ -149,7 +149,7 @@
 
         </div>
         <script>
-            window.addEventListener('DOMContentLoaded', main(), false);
+            window.addEventListener('DOMContentLoaded', refresh(), false);
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
                 var ip = document.getElementById("ip");
@@ -161,7 +161,6 @@
                 console.log(ip, username, password, mname, folder);
                 requestMount(ip, username, password, mname, folder);
             });
-            refresh();
         </script>
     </body>
 </html>
