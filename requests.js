@@ -35,6 +35,7 @@ function refresh() {
             console.log(window.location.hostname);
             console.log(window.location.href);
             console.log(window.location.href.substring(window.location.hostname.length + 8));
+            $("#directoryStructure").replaceWith("<tbody>" + html_body + " </tbody>")
         },
 
         error: function (xhr, errmsg, err) {
