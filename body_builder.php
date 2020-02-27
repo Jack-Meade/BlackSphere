@@ -93,7 +93,7 @@
     </tr>";
             }
         }
-        return $html;
+        return array($html, $atext);
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
