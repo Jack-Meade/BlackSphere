@@ -32,6 +32,7 @@ function refresh() {
             var response = html_body;
             // On success show something to user
             console.debug(response);
+            console.log(response);
         },
 
         error: function (xhr, errmsg, err) {
