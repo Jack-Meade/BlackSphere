@@ -24,7 +24,7 @@ function refresh() {
     $.ajax({
         url: "/bs/body_builder.php", // the endpoint
         type: "POST", // http method
-        data: { function: '1' }, // data sent with the post request
+        data: { function: "1" }, // data sent with the post request
 
         // handle a successful response
         success: function (html_body) {
