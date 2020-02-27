@@ -93,7 +93,10 @@
     </tr>";
             }
         }
-        echo $html;
         return $atext;
+    }
+    $runFunction = $_POST['function'];
+    if($runFunction == '1') {
+        echo body_builder();
     }
 ?>
