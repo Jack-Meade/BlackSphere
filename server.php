@@ -79,7 +79,7 @@
                 <button form="dir_form" type="submit" class="btn btn-primary"> <i class="fas fa-download"></i> Download</button>
                 <button type="button" data-target="#modalUpload" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-upload"></i> Upload </button>
                 <button type="button" data-target="#modalMount" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-cloud-upload-alt"></i> Mount Folder </button>
-                <button type="button" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
+                <button type="button" data-target="#modalmkdir" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-upload"></i> Refresh </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
@@ -148,6 +148,30 @@
                 </div>
             </div>
             <!-- End of modal -->
+            <!-- Start of Modal For Making a Folder --> 
+            <div class="modal fade" id="modalmkdir" tabindex="-1" role="dialog" aria-labelledby="modalmkdir" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalmkdirTitle">New Folder</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modalBody">
+                            <form id="modalmkdirForm">
+                                Folder Name:    <input id="folderName" name="folderName" type="text" placeholder="New Folder" default="new_folder">
+                            </form>
+                        </div>
+                        <div class="modalFooter">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button form="modalmkdirForm" type="submit" class="btn btn-primary">Mount Folder</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Modal for making a fodler -->
+
 
 
         </div>
