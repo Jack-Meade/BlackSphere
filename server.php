@@ -69,7 +69,7 @@
                     </thead>
 
                     <tbody>
-                        <?php echo body_builder(); ?>
+                        <?php list($html, $atext) = body_builder(); echo $html; ?>
                     </tbody>
                 </table>
 
@@ -148,7 +148,7 @@
                 </div>
             </div>
             <!-- End of modal -->
-            <!-- Start of Modal For Making a Folder --> 
+            <!-- Start of Modal For Making a Folder -->
             <div class="modal fade" id="modalmkdir" tabindex="-1" role="dialog" aria-labelledby="modalmkdir" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -177,7 +177,7 @@
         </div>
         <script>
             mainVali();
-            
+
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
 
