@@ -9,7 +9,6 @@ function requestMount(ip, username, password, mname, folder) {
             var response = html_body;
             // On success show something to user
             console.log(html_body);
-            refresh();
         },
 
         error: function (xhr, errmsg, err) {
@@ -22,7 +21,7 @@ function requestMount(ip, username, password, mname, folder) {
 
 function refresh() {
     $.ajax({
-        url: "/bs/body_builder.php", // the endpoint
+        url: "https://jmpi.ddns.net/bs/body_builder.php", // the endpoint
         type: "POST", // http method
         data: {}, // data sent with the post request
 
