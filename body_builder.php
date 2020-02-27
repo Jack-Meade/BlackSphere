@@ -1,6 +1,11 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT']."/bs/beautify.php";
     function body_builder() {
+        if ($_POST['folder']) {
+            $req_uri = $_POST['folder']);
+        } else {
+            $req_uri = $_SERVER['REQUEST_URI'];
+        }
         $html = "";
         // Checks to see if veiwing hidden files is enabled
         if($_SERVER['QUERY_STRING']=="hidden") {
@@ -14,8 +19,8 @@
         }
 
         // Opens directory, trimming URL to map onto directory structure
-        if (strpos($_SERVER['REQUEST_URI'], "/bs/") !== false) {
-            $dir_path = str_replace("/bs", "../bs", $_SERVER['REQUEST_URI']);
+        if (strpos($req_uri, "/bs/") !== false) {
+            $dir_path = str_replace("/bs", "../bs", $req_uri);
         }
 
 
