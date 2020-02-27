@@ -68,7 +68,7 @@
                     </thead>
 
                     <tbody>
-                        <?php echo body_builder(); ?>
+                        <?php $atext = body_builder(); ?>
                     </tbody>
                 </table>
 
@@ -157,7 +157,7 @@
                 var password = document.getElementById("password");
                 var mname = document.getElementById("mname");
                 var folder = document.getElementById("folder");
-                
+
                 console.log(ip, username, password, mname, folder);
                 requestMount(ip, username, password, mname, folder);
             });

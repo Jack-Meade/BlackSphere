@@ -94,6 +94,6 @@
             }
         }
         echo $html;
-        return $html;
+        return $atext;
     }
 ?>
