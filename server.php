@@ -129,7 +129,7 @@
                             </button>
                         </div>
                         <div class="modalBody">
-                            <form action="/bs/mounter.php" method="POST" id="mountRequestForm">
+                        <form id="mountRequestForm"> <!-- action="/bs/mounter.php" method="POST" -->
                                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
                                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
