@@ -17,9 +17,10 @@ function requestMount(ip, username, password, mname, path)
         data: { ip: ip, username: username, password: password, mname: mname, folder: folder}, // data sent with the post request
 
         // handle a successful response
-        success: function (json) {
-            var response = json;
+        success: function (html_body) {
+            var response = html_body;
             // On success show something to user
+            console.log(html_body);
         },
 
         error: function (xhr, errmsg, err) {
