@@ -31,7 +31,7 @@ function refresh() {
             console.log("refresh");
             var response = html_body;
             // On success show something to user
-            console.log(response);
+            console.debug(response);
         },
 
         error: function (xhr, errmsg, err) {
