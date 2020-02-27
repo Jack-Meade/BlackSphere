@@ -166,7 +166,7 @@
                         </div>
                         <div class="modalFooter">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button form="modalmkdirForm" type="submit" class="btn btn-primary">Mount Folder</button>
+                            <button form="modalmkdirForm" type="submit" class="btn btn-primary">Make Folder</button>
                         </div>
                     </div>
                 </div>
