@@ -33,6 +33,7 @@ function refresh() {
             // On success show something to user
             console.debug(response);
             console.log(response);
+            console.log(typeof(response));
         },
 
         error: function (xhr, errmsg, err) {
