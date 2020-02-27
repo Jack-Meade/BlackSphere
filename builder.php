@@ -14,8 +14,8 @@
         }
 
         // Opens directory, trimming URL to map onto directory structure
-        if (strpos($_SERVER['REQUEST_URI'], "/test/") !== false) {
-            $dir_path = str_replace("/test", "../test", $_SERVER['REQUEST_URI']);
+        if (strpos($_SERVER['REQUEST_URI'], "/bs/") !== false) {
+            $dir_path = str_replace("/bs", "../bs", $_SERVER['REQUEST_URI']);
         }
 
 
