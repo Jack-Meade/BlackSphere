@@ -30,8 +30,9 @@
         <link rel="stylesheet" href="/bs/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-        <script src="/bs/sorttable.js"></script>
-        <script src="/bs/requests.js"></script>
+        <script src="/bs/sorttable.js" type='text/javascript'></script>
+        <script src="/bs/requests.js" type='text/javascript'></script>
+        <script src="/bs/validateCSRF.js" type='text/javascript'></script>
         <script src='/bs/dropzone.js' type='text/javascript'></script>
         <script src='/bs/dzOptions.js' type='text/javascript'></script>
     </head>
@@ -68,7 +69,7 @@
                     </thead>
 
                     <tbody>
-                        <?php $atext = body_builder(); ?>
+                        <?php echo body_builder(); ?>
                     </tbody>
                 </table>
 
@@ -79,6 +80,7 @@
                 <button type="button" data-target="#modalUpload" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-upload"></i> Upload </button>
                 <button type="button" data-target="#modalMount" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-cloud-upload-alt"></i> Mount Folder </button>
                 <button type="button" data-target="#modalmkdir" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-upload"></i> Refresh </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
 
@@ -134,7 +136,7 @@
                                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
                                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
-                                Folder To Mount:    <input id='folder'     name="folder"     type="text"     placeholder="Folder"><br />
+                                Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Folder"><br />
                                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
                             </form>
                         </div>
@@ -174,8 +176,11 @@
 
         </div>
         <script>
+            mainVali();
+            
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
+
                 var ip = document.getElementById("ip");
                 var username = document.getElementById("username");
                 var password = document.getElementById("password");

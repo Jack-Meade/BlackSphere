@@ -6,6 +6,7 @@ function requestMount(ip, username, password, mname, folder) {
 
         // handle a successful response
         success: function (html_body) {
+            console.log("request Mount");
             var response = html_body;
             // On success show something to user
             refresh();
@@ -23,13 +24,14 @@ function refresh() {
     $.ajax({
         url: "/bs/body_builder.php", // the endpoint
         type: "POST", // http method
-        data: {}, // data sent with the post request
+        data: { function: '1' }, // data sent with the post request
 
         // handle a successful response
         success: function (html_body) {
+            console.log("refresh");
             var response = html_body;
             // On success show something to user
-            console.log(html_body);
+            console.log(response);
         },
 
         error: function (xhr, errmsg, err) {
