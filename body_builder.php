@@ -1,6 +1,6 @@
 <?php
     require $_SERVER['DOCUMENT_ROOT']."/bs/beautify.php";
-    function builder() {
+    function body_builder() {
         $html = "";
         // Checks to see if veiwing hidden files is enabled
         if($_SERVER['QUERY_STRING']=="hidden") {
