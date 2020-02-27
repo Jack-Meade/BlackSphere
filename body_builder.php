@@ -2,7 +2,7 @@
     require $_SERVER['DOCUMENT_ROOT']."/bs/beautify.php";
     function body_builder() {
         if ($_POST['folder']) {
-            $req_uri = $_POST['folder']);
+            $req_uri = $_POST['folder'];
         } else {
             $req_uri = $_SERVER['REQUEST_URI'];
         }
