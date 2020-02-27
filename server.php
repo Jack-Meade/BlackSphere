@@ -69,7 +69,7 @@
                     </thead>
 
                     <tbody>
-                        <?php $atext = body_builder(); ?>
+                        <?php echo body_builder(); ?>
                     </tbody>
                 </table>
 
