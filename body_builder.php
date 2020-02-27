@@ -98,6 +98,6 @@
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
         list($html, $atext) = body_builder();
-        echo strval($html);
+        echo json_encode($string);
     }
 ?>
