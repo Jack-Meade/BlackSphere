@@ -148,5 +148,9 @@
 
 
         </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', main(), false);
+            refresh();
+        </script>
     </body>
 </html>
