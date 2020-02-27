@@ -6,6 +6,7 @@ function requestMount(ip, username, password, mname, folder) {
 
         // handle a successful response
         success: function (html_body) {
+            console.log("request Mount");
             var response = html_body;
             // On success show something to user
             refresh();
@@ -27,6 +28,7 @@ function refresh() {
 
         // handle a successful response
         success: function (html_body) {
+            console.log("refresh");
             var response = html_body;
             // On success show something to user
             console.log(html_body);
