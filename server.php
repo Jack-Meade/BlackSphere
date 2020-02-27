@@ -135,7 +135,7 @@
                                 IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
                                 SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
                                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
-                                Folder To Mount:    <input id='folder'     name="folder"     type="text"     placeholder="Folder"><br />
+                                Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Folder"><br />
                                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
                             </form>
                         </div>
