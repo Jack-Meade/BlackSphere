@@ -4,7 +4,7 @@
     $baseDir = '/bs/TopLevelDir';
     $fullPath = $current_working_dir.'/'.$new_file_name;
     mkdir($fullPath); # This will make a folder in the currect directory that the script is in by default!
-    echo "$current_working_dir";
+    #echo "$current_working_dir";
     echo "$fullPath";
-    echo "wewo2o";
+    
 ?>
