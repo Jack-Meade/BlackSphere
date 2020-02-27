@@ -23,6 +23,7 @@ function requestMount(ip, username, password, mname, folder) {
             var response = html_body;
             // On success show something to user
             console.log(html_body);
+            refresh();
         },
 
         error: function (xhr, errmsg, err) {
