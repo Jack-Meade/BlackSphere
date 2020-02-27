@@ -138,7 +138,6 @@
                                 SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
                                 Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Folder"><br />
                                 Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
-                                <button type="submit" value="Test Submit inside form" class="btn btn-primary">TEST FOLDER MOUNTING</button>
                             </form>
                         </div>
                         <div class="modalFooter">
