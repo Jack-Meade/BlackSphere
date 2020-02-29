@@ -79,8 +79,8 @@
                 <button form="dir_form" type="submit" class="btn btn-primary"> <i class="fas fa-download"></i> Download</button>
                 <button type="button" data-target="#modalUpload" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-upload"></i> Upload </button>
                 <button type="button" data-target="#modalMount" class="btn btn-primary" data-toggle="modal" ><i class="fas fa-cloud-upload-alt"></i> Mount Folder </button>
-                <button type="button" data-target="#modalmkdir" class="btn btn-primary" data-toggle="modal"><i class="fas fa-upload"></i> Make Folder WEEWOO</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-upload"></i> Refresh </button>
+                <button type="button" data-target="#modalmkdir" class="btn btn-primary" data-toggle="modal"><i class="fas fa-folder"></i> Make Folder </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-bootstrap-reboot"></i> Refresh </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
 
