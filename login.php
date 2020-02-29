@@ -14,12 +14,14 @@
     </head>
 
     <body>
-        <img src="/bs/blackspherelogo.png"/>
-        <form action="" method="POST" enctype=”multipart/form-data”>
-            <label for="nkey">Login:</label>
-            <input type="text" name="nkey" id="nkey" placeholder="Enter key here"/>
-            <input type="submit" value="Login"/>
-        </form>
+        <div id="login_form">
+            <img src="/bs/blackspherelogo.png"/>
+            <form action="" method="POST" enctype=”multipart/form-data”>
+                <label for="nkey">Login:</label>
+                <input type="text" name="nkey" id="nkey" placeholder="Enter key here"/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
     </body>
 </html>');
     }
