@@ -43,14 +43,21 @@
 
             <div id="headerButtons">
                 <div id="backForwardBtn">
-                    <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&uarr;</button>
+                    <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&larr;</button>
+                    <button type="button" class="btn btn-dark" onclick="history.forward();">&rarr;</button>
                 </div>
-                <form action="/bs/search.php" method="POST">
-                    <input type="text"    name="search_bar" placeholder="Filename"/>
-                    <input type="submit"  value="Search"/>
+
+                <form action="/bs/search.php" method="POST" id="searchForm" class="input-group">
+                    <input type="text" class="form-control" name="search_bar" placeholder="Search.."/>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+                    </div>
                 </form>
-                <button type="button" class="btn btn-danger" onclick="location.href='/bs/logout.php'">Log Out</button>
+                <div>
+                    <button type="button" class="btn btn-danger" onclick="location.href='/bs/logout.php'">Log Out</button>
+                </div>
             </div>
+
             <form id="dir_form" method='POST' action="/bs/download.php">
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark">
@@ -68,7 +75,6 @@
                             <th>Size</th>
                             <th>Date Modified</th>
                         </tr>
-
                     </thead>
 
                     <tbody id="directoryStructure">
@@ -86,6 +92,20 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-sync"></i> Refresh </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
+
+            <?php
+                if(isset($_FILES['file_to_upload'])){
+                    $file_name  = $_FILES['file_to_upload']['name'];
+                    $file_size  = $_FILES['file_to_upload']['size'];
+                    $file_tmp   = $_FILES['file_to_upload']['tmp_name'];
+                    $file_type  = $_FILES['file_to_upload']['type'];
+                    $file_ext   = strtolower(end(explode('.',$_FILES['file_to_upload']['name'])));
+
+                    echo $_FILES[$file_name]['error'];
+                    move_uploaded_file($file_tmp, "/var/www/html".$_SERVER['REQUEST_URI'].$file_name);
+                }
+            ?>
+
 
             <!-- Modal for uploading a file-->
             <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
@@ -121,12 +141,33 @@
                             </button>
                         </div>
                         <div class="modalBody">
-                        <form id="mountRequestForm"> <!-- action="/bs/mounter.php" method="POST" -->
-                                IP Address:         <input id='ip'       name="ip"       type="text"     placeholder="IP Address"><br />
-                                SSH Username:       <input id='username' name="username" type="text"     placeholder="Username"><br />
-                                SSH Password:       <input id='password' name="password" type="password" placeholder="Password"><br />
-                                Folder To Mount:    <input id='folder'   name="folder"   type="text"     placeholder="Folder"><br />
-                                Mount Name:         <input id='mname'    name="mname"    type="text"     placeholder="Name"><br />
+                        <form id="mountRequestForm" method="POST"> <!-- action="/bs/mounter.php" -->
+                            <div class="row">
+                                <div class="col-ld-4 mb-3">
+                                     <label for="sshusername">SSH Username: </label>
+                                     <input id='sshusername' class="form-control" name="username" type="text" placeholder="Username" >
+                                </div>
+                                 <div class="col-ld-4 mb-3">
+                                     <label for="sship">IP Address: </label>
+                                     <input id='sship' class="form-control" name="ip" type="text" placeholder="IP Address" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-ld-4 mb-3">
+                                    <label for="sshpassword">SSH Password: </label>
+                                    <input id='sshpassword' class="form-control" name="password" type="password" placeholder="Password" >
+                                </div>
+                                <div class="col-ld-4 mb-3">
+                                    <label for="sshfolder">Folder To Mount: </label>
+                                    <input id='sshfolder' class="form-control" name="folder"   type="text"     placeholder="Folder" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="sshmname">Name of folder:</label>
+                                    <input id='sshmname' class="form-control"  name="mname"    type="text"     placeholder="Name" >
+                                </div>
+                            </div>
                             </form>
                         </div>
                         <div class="modalFooter">
@@ -139,7 +180,7 @@
             <!-- End of modal -->
             <!-- Start of Modal For Making a Folder -->
             <div class="modal fade" id="modalmkdir" tabindex="-1" role="dialog" aria-labelledby="modalmkdir" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="modalmkdirTitle">New Folder</h5>
@@ -149,7 +190,8 @@
                         </div>
                         <div class="modalBody">
                             <form action= "/bs/serverSideExecutables/makefolder.php" id="modalmkdirForm" method='POST'>
-                                Folder Name:    <input id="folderName" name="folderName" type="text" placeholder="New Folder" default="new_folder"/>
+                                <label for="sshmname">Folder name:</label>
+                                <input id="folderName" class="form-control"name="folderName" type="text" placeholder="New Folder" default="new_folder"/>
                                 <input type="hidden" id="currentFolder" name="currentFolder" value="<?php echo $dir_path ?>"/>
                             </form>
                         </div>
@@ -171,13 +213,13 @@
             $('#mountRequestForm').on('submit', function (event) {
                 event.preventDefault();
 
-                var ip = document.getElementById("ip");
-                var username = document.getElementById("username");
-                var password = document.getElementById("password");
-                var mname = document.getElementById("mname");
-                var folder = document.getElementById("folder");
+                var ip = document.getElementById("sship");
+                var username = document.getElementById("sshusername");
+                var password = document.getElementById("sshpassword");
+                var mname = document.getElementById("sshmname");
+                var folder = document.getElementById("sshfolder");
 
-                console.log(ip, username, password, mname, folder);
+                // console.log(ip, username, password, mname, folder);
                 requestMount(ip, username, password, mname, folder);
             });
         </script>
