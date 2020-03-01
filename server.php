@@ -43,8 +43,7 @@
 
             <div id="headerButtons">
                 <div id="backForwardBtn">
-                    <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&larr;</button>
-                    <button type="button" class="btn btn-dark" onclick="history.forward();">&rarr;</button>
+                    <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&uarr;</button>
                 </div>
                 <form action="/bs/search.php" method="POST">
                     <input type="text"    name="search_bar" placeholder="Filename"/>
@@ -87,20 +86,6 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="refresh()"><i class="fas fa-sync"></i> Refresh </button>
                 <?php echo("<button type='button' class=\"btn btn-primary\" onclick= window.location.href='$ahref'> $atext hidden files</button>"); ?>
             </div>
-
-            <?php
-                if(isset($_FILES['file_to_upload'])){
-                    $file_name  = $_FILES['file_to_upload']['name'];
-                    $file_size  = $_FILES['file_to_upload']['size'];
-                    $file_tmp   = $_FILES['file_to_upload']['tmp_name'];
-                    $file_type  = $_FILES['file_to_upload']['type'];
-                    $file_ext   = strtolower(end(explode('.',$_FILES['file_to_upload']['name'])));
-
-                    echo $_FILES[$file_name]['error'];
-                    move_uploaded_file($file_tmp, "/var/www/html".$_SERVER['REQUEST_URI'].$file_name);
-                }
-            ?>
-
 
             <!-- Modal for uploading a file-->
             <div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
