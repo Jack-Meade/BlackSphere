@@ -46,7 +46,7 @@
                     <button type="button" class="btn btn-dark" onclick="window.location.href = './..'">&larr;</button>
                     <button type="button" class="btn btn-dark" onclick="history.forward();">&rarr;</button>
                 </div>
-                <form action="/test/search.php" method="POST">
+                <form action="/bs/search.php" method="POST">
                     <input type="text"    name="search_bar" placeholder="Filename"/>
                     <input type="submit"  value="Search"/>
                 </form>
