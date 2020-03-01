@@ -98,11 +98,11 @@
     </tr>";
             }
         }
-        return array($html, $atext);
+        return array($html, $atext, $ahref);
     }
     $runFunction = $_POST['function'];
     if($runFunction === '1') {
-        list($html, $atext) = body_builder();
+        list($html, $atext, $ahref) = body_builder();
         echo json_encode($html);
     }
 ?>
