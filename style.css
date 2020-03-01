@@ -24,10 +24,6 @@ a:link {
     text-decoration: none;
 }
 
-a:hover {
-    color: #00ff00;
-}
-
 td a {
     display: block;
     height: 100%;
@@ -58,18 +54,22 @@ input[type='checkbox'] {
 #login_form {
     text-align: center;
 }
-
+#searchForm {
+    width:35%;
+    margin-bottom: 0.2em;
+}
 #headerButtons {
     display: flex;
     justify-content: space-between;
 }
 
 #mountRequestForm {
-    margin: 0 auto;
-    width: 0 auto;
-    text-align: right;
-    padding: 5px;
     margin-bottom: 5px;
+}
+
+.row div{
+    margin:0.5em;
+    padding: 0;
 }
 
 .modalBody {
