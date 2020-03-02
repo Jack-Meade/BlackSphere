@@ -7,11 +7,11 @@
             echo "nozip"; return;
 		}
         $referer_address = str_replace("https://jmpi.ddns.net", "..", $_SERVER['HTTP_REFERER']);
+        $referer_address = str_replace("search.php", "", $referer_address);
         foreach ($_POST['file'] as $key => $val)  {
-            echo $referer_address.$val; echo "<br>";
             $filename = $referer_address.$val;
             if (!is_file($filename)){
-                echo "File not found".$filename."<br>";
+                echo "File not found ".$filename."<br>";
             } else {
                 $zip->addFile($filename, $val);
             }
@@ -39,6 +39,7 @@
     } elseif(count($_POST['file']) == 1)  {
         //only one file selected
         $referer_address = str_replace("https://jmpi.ddns.net", "..", $_SERVER['HTTP_REFERER']);
+        $referer_address = str_replace("search.php", "", $referer_address);
         foreach ($_POST['file'] as $key => $val)  {
             $filename = $referer_address.$val;
         }
