@@ -21,13 +21,12 @@
 
     <body>
         <img src="/bs/blackspherelogo.png"/>
-        <h1>Here are some files we found:</h1>
         <form id="dir_form" method='POST' action="/bs/download.php">
             <table class="table table-hover table-bordered">
                 <thead class="thead-dark">
                     <tr>
                         <th colspan="5">
-                            <?php echo($dir_path); ?>
+                            Here are some files we found:
                         </th>
                     </tr>
                 </thead>
