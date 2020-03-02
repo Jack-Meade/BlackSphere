@@ -47,6 +47,7 @@
                 }
 
                 // Output
+                $name = str_replace("TopLevelDir/", "", $name);
                 $html = $html."
     <tr class='$class'>
         <td><input type='checkbox' class='form-check-input' value='$namehref' name='file[$i]'/></td>
