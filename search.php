@@ -49,6 +49,9 @@
                     ?>
                 </tbody>
             </table>
+            <div id="butt_div">
+                <button form="dir_form" type="submit" class="btn btn-primary"> <i class="fas fa-download"></i> Download</button>
+            </div>
         </form>
     </body>
 </html>
