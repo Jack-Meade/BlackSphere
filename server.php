@@ -126,31 +126,31 @@
                             </button>
                         </div>
                         <div class="modalBody">
-                        <form id="mountRequestForm" method="POST"> <!-- action="/bs/mounter.php" -->
+                        <form action="/bs/mounter.php" id="mountRequestForm" method="POST">
                             <div class="row">
                                 <div class="col-ld-4 mb-3">
                                      <label for="sshusername">SSH Username: </label>
-                                     <input id='sshusername' class="form-control" name="username" type="text" placeholder="Username" >
+                                     <input id='sshusername' class="form-control" name="sshusername" type="text" placeholder="Username" >
                                 </div>
                                  <div class="col-ld-4 mb-3">
                                      <label for="sship">IP Address: </label>
-                                     <input id='sship' class="form-control" name="ip" type="text" placeholder="IP Address" >
+                                     <input id='sship' class="form-control" name="sship" type="text" placeholder="IP Address" >
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-ld-4 mb-3">
                                     <label for="sshpassword">SSH Password: </label>
-                                    <input id='sshpassword' class="form-control" name="password" type="password" placeholder="Password" >
+                                    <input id='sshpassword' class="form-control" name="sshpassword" type="password" placeholder="Password" >
                                 </div>
                                 <div class="col-ld-4 mb-3">
                                     <label for="sshfolder">Folder To Mount: </label>
-                                    <input id='sshfolder' class="form-control" name="folder"   type="text"     placeholder="Folder" >
+                                    <input id='sshfolder' class="form-control" name="sshfolder"   type="text"     placeholder="Folder" >
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="sshmname">Name of folder:</label>
-                                    <input id='sshmname' class="form-control"  name="mname"    type="text"     placeholder="Name" >
+                                    <input id='sshmname' class="form-control"  name="sshmname"    type="text"     placeholder="Name" >
                                 </div>
                             </div>
                             </form>
@@ -194,19 +194,6 @@
         </div>
         <script>
             mainVali();
-
-            $('#mountRequestForm').on('submit', function (event) {
-                event.preventDefault();
-
-                var ip = document.getElementById("sship");
-                var username = document.getElementById("sshusername");
-                var password = document.getElementById("sshpassword");
-                var mname = document.getElementById("sshmname");
-                var folder = document.getElementById("sshfolder");
-
-                // console.log(ip, username, password, mname, folder);
-                requestMount(ip, username, password, mname, folder);
-            });
         </script>
     </body>
 </html>
