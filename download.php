@@ -49,7 +49,6 @@
         header("Cache-control: private"); //use this to open files directly
         readfile($filename);
     } else {
-        echo count($_POST['file']);
-        echo 'no documents were selected. Please go back and select one or more documents';
+        header('Location: '.$_SERVER['HTTP_REFERER'].'');
     }
 ?>
