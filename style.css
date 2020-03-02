@@ -52,7 +52,13 @@ input[type='checkbox'] {
 }
 
 #login_form {
-    text-align: center;
+    display:flex;
+    justify-content: center;
+}
+#blacklogo{
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
 }
 #searchForm {
     width:35%;
