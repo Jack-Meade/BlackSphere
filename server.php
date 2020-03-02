@@ -194,6 +194,7 @@
         </div>
         <script>
             mainVali();
+            setInterval(refresh, 5000); // Refresh the directory every 5 seconds
         </script>
     </body>
 </html>
