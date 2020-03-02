@@ -1,3 +1,7 @@
+<?php
+    require $_SERVER['DOCUMENT_ROOT']."/bs/body_builder.php";
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,13 +22,34 @@
     <body>
         <img src="/bs/blackspherelogo.png"/>
         <h1>Here are some files we found:</h1>
-        <?php
-            $filename = $_POST['search_bar'];
-            exec("find TopLevelDir/ -name \"*$filename*\"", $paths, $return_var);
-            foreach ($paths as $path) {
-                $pieces = explode("/", $path);
-                $basename = end($pieces);
-                echo("<p><a href='./$path'>$basename</a></p>");
-            }
-        ?>
+        <form id="dir_form" method='POST' action="/bs/download.php">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="5">
+                            <?php echo($dir_path); ?>
+                        </th>
+                    </tr>
+                </thead>
+                <thead class="thead-dark">
+                    <tr>
+                        <th></th>
+                        <th>Filename</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Date Modified</th>
+                    </tr>
+                </thead>
+
+                <tbody id="directoryStructure">
+                    <?php
+                        $filename = $_POST['search_bar'];
+                        exec("find TopLevelDir/ -name \"*$filename*\"", $paths, $return_var);
+
+                        echo(gen_table_html($paths, "", ""));
+                    ?>
+                </tbody>
+            </table>
+        </form>
     </body>
+</html>
