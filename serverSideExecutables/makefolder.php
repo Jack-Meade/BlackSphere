@@ -5,5 +5,6 @@
     chdir($var);
     $fullPath = '.'.$current_working_dir.$new_file_name;
     mkdir($fullPath); # This will make a folder in the currect directory that the script is in by default!
+    chmod($fullPath, 0777);
     // echo "$current_working_dir $fullPath $new_file_name";
 ?>
