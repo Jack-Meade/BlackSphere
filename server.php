@@ -176,7 +176,6 @@
                             <form action= "/bs/serverSideExecutables/makefolder.php" id="modalmkdirForm" method='POST'>
                                 <label for="sshmname">Folder name:</label>
                                 <input id="folderName" class="form-control"name="folderName" type="text" placeholder="New Folder" default="new_folder"/>
-                                <input type="hidden" id="currentFolder" name="currentFolder" value="<?php echo $dir_path ?>"/>
                             </form>
                         </div>
                         <div class="modalFooter">
@@ -194,6 +193,12 @@
         <script>
             mainVali();
             setInterval(refresh, 5000); // Refresh the directory every 5 seconds
+
+            $('#modalmkdirForm').on('submit', function (event) {
+                event.preventDefault();
+                var name = document.getElementById("folderName").value;
+                makeFolder(name);
+            });
         </script>
     </body>
 </html>
