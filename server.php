@@ -173,7 +173,7 @@
                             </button>
                         </div>
                         <div class="modalBody">
-                            <form action= "/bs/serverSideExecutables/makefolder.php" id="modalmkdirForm" method='POST'>
+                            <form id="modalmkdirForm" method='POST'>
                                 <label for="sshmname">Folder name:</label>
                                 <input id="folderName" class="form-control"name="folderName" type="text" placeholder="New Folder" default="new_folder"/>
                             </form>
