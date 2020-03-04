@@ -4,6 +4,7 @@ window.onload = function () {
   var dropzoneOptions = {
     dictDefaultMessage: 'Drop Here!',
     paramName: "file",
+    timeout: 0,
     maxFilesize: 1000,   // MB
     thumbnailWidth: null,
     thumbnailHeight: null,
