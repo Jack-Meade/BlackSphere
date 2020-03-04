@@ -10,7 +10,7 @@ dest:'./uploads/' //Upload to server folder
 app.use(cors());
 
 app.post('/bs/uploads/',upload.single('file'), (req, res) => { // Look for post requests with /upload url , give to multer
-
+        req.setTimeout(500000);
         try{
           var oldPath = req.file.path;
           ref = req.get('referer'); // the source domain, needed because of nginx reverse proxy
