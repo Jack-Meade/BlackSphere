@@ -15,7 +15,7 @@ app.post('/bs/uploads/',upload.single('file'), (req, res) => { // Look for post 
           var oldPath = req.file.path;
           ref = req.get('referer'); // the source domain, needed because of nginx reverse proxy
           var filePath = ref.replace("https://jmpi.ddns.net/bs", "");
-          var newPath = '/home/sshfs/bs' + filePath + req.file.originalname;
+          var newPath = '/var/www/html/bs' + filePath + req.file.originalname;
           res.json({file:req.file});  // Return the details of the uploaded file to the browser
           fs.rename(oldPath, newPath, function (err) {
                 if (err) throw err
