@@ -18,6 +18,7 @@ accesses TopLevelDir via the web GUI.
 
 ## How to Use BlackSphere
 You can access the [test version](https://jmpi.ddns.net/bs/TopLevelDir/) of BlackSphere right now, but be warned it is **under development** and is subject to **change without any notice**.
+The test key is `asd`.
 
 # Features
 ## Virtual Filesystem over Multiple Hosts over Different Networks
